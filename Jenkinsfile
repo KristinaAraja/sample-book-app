@@ -43,10 +43,10 @@ pipeline {
 }
 def buildImage(){
     echo "Building docker image....."
-    sh "docker build -t kristinaaraja/sample-book-app ."
+    sh 'docker build -t kristinaaraja/sample-book-app .'
 
     echo "Pushing image for docker registry.."
-    sh "docker push kristinaaraja/sample-book-app"
+    sh 'docker push kristinaaraja/sample-book-app'
 }
 
 def deploy(String environment){
