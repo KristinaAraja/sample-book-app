@@ -16,7 +16,7 @@ pipeline {
         }
         stage('test-dev') {
             steps {
-                run-api-tests("DEV")
+                runApiTests("DEV")
             }
         }
         stage('deploy-stg') {
@@ -26,7 +26,7 @@ pipeline {
         }
         stage('test-stg') {
             steps {
-                run-api-tests("STG")
+                runApiTests("STG")
             }
         }
         stage('deploy-prd') {
@@ -36,7 +36,7 @@ pipeline {
         }
         stage('test-prd') {
             steps {
-                run-api-tests("PRD")
+                runApiTests("PRD")
             }
         }
     }
@@ -49,6 +49,6 @@ def deploy(String environment){
     echo "Deployment triggered on ${environment} env...."
 }
 
-def run_api_tests(String environment){
+def runApiTests(String environment){
     echo "API tests triggered on ${environment} env...."
 }
