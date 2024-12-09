@@ -49,6 +49,6 @@ def deploy(String environment){
     echo "Deployment triggered on ${environment} env...."
 }
 
-def run-api-tests(String environment){
+def run_api_tests(String environment){
     echo "API tests triggered on ${environment} env...."
 }
