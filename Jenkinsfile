@@ -43,6 +43,8 @@ pipeline {
 }
 def buildImage(){
     echo "Building docker image....."
+    sh 'which docker'
+    sh 'docker --version'
     sh 'docker build -t kristinaaraja/sample-book-app .'
 
     echo "Pushing image for docker registry.."
