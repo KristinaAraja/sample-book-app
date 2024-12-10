@@ -43,9 +43,6 @@ pipeline {
 }
 def buildImage(){
     echo "Building docker image....."
-    sh 'echo $PATH'
-    sh 'which docker'
-    sh 'docker --version'
     sh 'docker build -t kristinaaraja/sample-book-app .'
 
     echo "Pushing image for docker registry.."
@@ -54,8 +51,14 @@ def buildImage(){
 
 def deploy(String environment){
     echo "Deployment triggered on ${environment} env...."
+    String lowercaseEnv = environment.toLowerCase()
+    sh "docker compose stop sample-book-app-${lowercaseEnv}"
+    sh "docker compose rm sample-book-app-${lowercaseEnv}"
+    sh "docker compose up -d sample-book-app-${lowercaseEnv}"
 }
 
 def runApiTests(String environment){
     echo "API tests triggered on ${environment} env...."
+    sh "docker pull kristinaaraja/js-api-tests"
+    sh "docker run --network=host --rm kristinaaraja/js-api-tests run BOOKS BOOKS_${environment}"
 }
