@@ -5,7 +5,7 @@ const PORT = 1010;
 
 // Dummy books data
 const books = [
-  { id: 1000, title: 'The Catcher in the Rye', author: 'J.D. Salinger', pageCount: 220, country: 'United States' },
+  { id: 1, title: 'The Catcher in the Rye', author: 'J.D. Salinger', pageCount: 220, country: 'United States' },
   { id: 2, title: 'To Kill a Mockingbird', author: 'Harper Lee', pageCount: 281, country: 'United States' },
   { id: 3, title: '1984', author: 'George Orwell', pageCount: 328, country: 'United Kingdom' },
   { id: 4, title: 'One Hundred Years of Solitude', author: 'Gabriel Garcia Marquez', pageCount: 417, country: 'Colombia' },
